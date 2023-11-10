@@ -73,8 +73,7 @@ services:
       - VIRTUAL_HOST=${DOMAIN_NAME}
     labels:
       - "traefik.enable=true"
-      #- "traefik.http.routers.nx.rule=Host(`nx.$DOMAIN_NAME`)"
-      - "traefik.http.routers.nx.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.nx.rule=Host(`nx.$DOMAIN_NAME`)"
       - "traefik.http.routers.nx.entrypoints=websecure"
       - "traefik.http.routers.nx.tls.certresolver=letsencrypt"
     depends_on:
