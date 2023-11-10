@@ -31,7 +31,6 @@ services:
     volumes:
       - db:/var/lib/mysql:Z
     environment:
-      - =
       - MARIADB_AUTO_UPGRADE=1
       - MARIADB_DISABLE_UPGRADE_BACKUP=1
     env_file:
