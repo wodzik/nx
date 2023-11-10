@@ -98,8 +98,8 @@ services:
       # WEBPASSWORD: 'set a secure password here or it will be random'
     # Volumes store your data between container upgrades
     volumes:
-      - 'pihole:/etc/pihole'
-      - 'dnsmsq:/etc/dnsmasq.d'
+      - '$PI_HOLE_PATH:/etc/pihole'
+      - './dnsmasq.d:/etc/dnsmasq.d'
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.pi.rule=Host(`pi.$DOMAIN_NAME`)"
@@ -127,8 +127,6 @@ services:
 
 volumes:
   db:
-  pihole:
-  dnsmsq:
 
 networks:
   traefik:
