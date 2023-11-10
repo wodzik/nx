@@ -18,6 +18,9 @@ services:
       #- "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.letsencrypt.acme.email=$CONTACT_EMAIL"
       - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+    environment:
+      - CLOUDFLARE_EMAIL=$CLOUDFLARE_EMAIL
+      - CLOUDFLARE_DNS_API_TOKEN=$CLOUDFLARE_DNS_API_TOKEN
     ports:
       - "443:443"
       - "80:80"
