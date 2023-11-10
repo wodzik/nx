@@ -45,7 +45,7 @@ services:
     image: nextcloud:fpm-alpine
     restart: unless-stopped
     volumes:
-      - nextcloud:/var/www/html:z
+      - ${NX_PATH}:/var/www/html:z
     environment:
       - MYSQL_HOST=db
       - REDIS_HOST=redis
@@ -61,7 +61,7 @@ services:
         dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
-      - nextcloud:/var/www/html:z,ro
+      - ${NX_PATH}:/var/www/html:z,ro
     environment:
       - VIRTUAL_HOST=${DOMAIN_NAME}
     labels:
@@ -105,7 +105,7 @@ services:
         dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
-      - nextcloud:/var/www/html:z
+      - ${NX_PATH}:/var/www/html:z
     depends_on:
       - db
       - redis
