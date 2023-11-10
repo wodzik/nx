@@ -99,7 +99,7 @@ services:
     # Volumes store your data between container upgrades
     volumes:
       - 'pihole:/etc/pihole'
-      - './dnsmasq.d:/etc/dnsmasq.d'
+      - 'dnsmsq:/etc/dnsmasq.d'
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.pi.rule=Host(`pi.$DOMAIN_NAME`)"
@@ -128,6 +128,7 @@ services:
 volumes:
   db:
   pihole:
+  dnsmsq:
 
 networks:
   traefik:
