@@ -69,9 +69,9 @@ services:
       - VIRTUAL_HOST=${DOMAIN_NAME}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`nx.$DOMAIN_NAME`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.nx.rule=Host(`nx.$DOMAIN_NAME`)"
+      - "traefik.http.routers.nx.entrypoints=websecure"
+      - "traefik.http.routers.nx.tls.certresolver=myresolver"
     depends_on:
       - app
     networks:
@@ -95,9 +95,9 @@ services:
       - './dnsmasq.d:/etc/dnsmasq.d'
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`pi.$DOMAIN_NAME`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.pi.rule=Host(`pi.$DOMAIN_NAME`)"
+      - "traefik.http.routers.pi.entrypoints=websecure"
+      - "traefik.http.routers.pi.tls.certresolver=myresolver"
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
