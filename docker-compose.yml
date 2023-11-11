@@ -61,6 +61,7 @@ services:
         - domain=${DOMAIN_NAME}
         - username=admin
         - password=${COLLABORA_ADMIN_PASSWORD}
+        - extra_params=--o:ssl.enable=false
 
   app:
     image: nextcloud:fpm-alpine
