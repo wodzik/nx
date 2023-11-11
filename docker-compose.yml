@@ -50,6 +50,18 @@ services:
     image: redis:alpine
     restart: unless-stopped
 
+  collabora:
+    image: collabora/code
+    restart: unless-stopped
+    cap_add:
+      - MKNOD
+    env_file:
+      - .env
+    environment:
+        - domain=${DOMAIN_NAME}
+        - username=admin
+        - password=${COLLABORA_ADMIN_PASSWORD}
+
   app:
     image: nextcloud:fpm-alpine
     restart: unless-stopped
